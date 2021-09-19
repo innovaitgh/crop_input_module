@@ -31,6 +31,10 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _default(_ref) {
   var init = _ref.init,
       name = _ref.name,
@@ -38,7 +42,8 @@ function _default(_ref) {
       crop = _ref.crop,
       cropName = _ref.cropName,
       accept = _ref.accept,
-      helperText = _ref.helperText;
+      helperText = _ref.helperText,
+      others = _objectWithoutProperties(_ref, ["init", "name", "onChange", "crop", "cropName", "accept", "helperText"]);
 
   var _React$useState = _react["default"].useState(init),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -68,14 +73,14 @@ function _default(_ref) {
 
   ;
 
-  var setCrop = function setCrop(newCrop) {
+  var setCrop = function setCrop(crop) {
     var _ref$current = ref.current,
         clientWidth = _ref$current.clientWidth,
         clientHeight = _ref$current.clientHeight;
     onChange({
       target: {
         name: cropName,
-        value: _objectSpread(_objectSpread(_objectSpread({}, crop), newCrop), {}, {
+        value: _objectSpread(_objectSpread({}, crop), {}, {
           clientWidth: clientWidth,
           clientHeight: clientHeight
         })
@@ -90,7 +95,7 @@ function _default(_ref) {
   }, /*#__PURE__*/_react["default"].createElement(_reactImageCrop["default"], _extends({
     src: src,
     crop: crop
-  }, {
+  }, others, {
     onChange: setCrop
   }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "root"
