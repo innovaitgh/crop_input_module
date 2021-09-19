@@ -68,14 +68,14 @@ function _default(_ref) {
 
   ;
 
-  var setCrop = function setCrop(crop) {
+  var setCrop = function setCrop(newCrop) {
     var _ref$current = ref.current,
         clientWidth = _ref$current.clientWidth,
         clientHeight = _ref$current.clientHeight;
     onChange({
       target: {
         name: cropName,
-        value: _objectSpread(_objectSpread({}, crop), {}, {
+        value: _objectSpread(_objectSpread(_objectSpread({}, crop), newCrop), {}, {
           clientWidth: clientWidth,
           clientHeight: clientHeight
         })
