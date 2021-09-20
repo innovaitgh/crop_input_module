@@ -110,7 +110,7 @@ function _default(_ref) {
   }, {
     onChange: handleOnChange,
     type: "file"
-  })), /*#__PURE__*/_react["default"].createElement("span", null, "Select image")), /*#__PURE__*/_react["default"].createElement("span", {
+  })), /*#__PURE__*/_react["default"].createElement("span", null, "Select image")), /*#__PURE__*/_react["default"].createElement(_core.FormHelperText, {
     error: true
   }, helperText));
 }
