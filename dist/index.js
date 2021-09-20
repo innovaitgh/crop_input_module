@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactImageCrop = _interopRequireDefault(require("react-image-crop"));
 
+var _core = require("@material-ui/core");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -43,7 +45,8 @@ function _default(_ref) {
       cropName = _ref.cropName,
       accept = _ref.accept,
       helperText = _ref.helperText,
-      others = _objectWithoutProperties(_ref, ["init", "name", "onChange", "crop", "cropName", "accept", "helperText"]);
+      error = _ref.error,
+      others = _objectWithoutProperties(_ref, ["init", "name", "onChange", "crop", "cropName", "accept", "helperText", "error"]);
 
   var _React$useState = _react["default"].useState(init),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -107,5 +110,7 @@ function _default(_ref) {
   }, {
     onChange: handleOnChange,
     type: "file"
-  })), /*#__PURE__*/_react["default"].createElement("span", null, "Select image")), /*#__PURE__*/_react["default"].createElement("span", null, helperText));
+  })), /*#__PURE__*/_react["default"].createElement("span", null, "Select image")), /*#__PURE__*/_react["default"].createElement("span", {
+    error: true
+  }, helperText));
 }
