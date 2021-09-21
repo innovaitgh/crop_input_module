@@ -38,15 +38,18 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function _default(_ref) {
-  var init = _ref.init,
+  var _ref$id = _ref.id,
+      id = _ref$id === void 0 ? "crop" : _ref$id,
+      init = _ref.init,
       name = _ref.name,
+      alt = _ref.alt,
       onChange = _ref.onChange,
       crop = _ref.crop,
       cropName = _ref.cropName,
       accept = _ref.accept,
       helperText = _ref.helperText,
       error = _ref.error,
-      others = _objectWithoutProperties(_ref, ["init", "name", "onChange", "crop", "cropName", "accept", "helperText", "error"]);
+      others = _objectWithoutProperties(_ref, ["id", "init", "name", "alt", "onChange", "crop", "cropName", "accept", "helperText", "error"]);
 
   var _React$useState = _react["default"].useState(init),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -99,10 +102,12 @@ function _default(_ref) {
     src: src,
     crop: crop
   }, others, {
-    onChange: setCrop
+    onChange: setCrop,
+    alt: alt
   }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "root"
   }, /*#__PURE__*/_react["default"].createElement("input", _extends({
+    id: id,
     className: "fill-root"
   }, {
     name: name,
@@ -110,7 +115,9 @@ function _default(_ref) {
   }, {
     onChange: handleOnChange,
     type: "file"
-  })), /*#__PURE__*/_react["default"].createElement("span", null, "Select image")), /*#__PURE__*/_react["default"].createElement(_core.FormHelperText, {
+  })), /*#__PURE__*/_react["default"].createElement("label", {
+    htmlFor: id
+  }, "Select image")), /*#__PURE__*/_react["default"].createElement(_core.FormHelperText, {
     error: true
   }, helperText));
 }
