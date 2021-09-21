@@ -103,7 +103,7 @@ function _default(_ref) {
     crop: crop
   }, others, {
     onChange: setCrop,
-    alt: alt
+    imageAlt: alt
   }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "root"
   }, /*#__PURE__*/_react["default"].createElement("input", _extends({
